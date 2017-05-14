@@ -1,0 +1,128 @@
+body{
+	background-color: #eee;	
+    margin:0 auto; 
+    height:100%;
+    overflow-x: hidden;
+}
+*{
+	padding:0;
+	margin:0;
+}
+li{
+	list-style: none;
+}
+body{
+	background-color: #eee;	
+    width: 540px;
+    margin:0 auto; 
+}
+*{
+	padding:0;
+	margin:0;
+}
+
+#flo{
+	width:100%;
+}
+#flo .aloa{
+	position: relative;
+	background-color:#c3f4f8;
+	width:98%;
+	padding:1% 1%;
+}
+#flo .aloa #back{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 45px;
+    height: 44px;
+    cursor:pointer;
+}
+#flo .aloa #back:after{
+	position: absolute;
+    top: 45%;
+    left: 50%;
+    margin: -7px 0 0 -6px;
+    content: "";
+    width: 12px;
+    height: 12px;
+    border-left: 2px solid #8A9094;
+    border-top: 2px solid #8A9094;
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+#flo .aloa #shousuo{
+	
+	cursor:pointer;
+	padding:1%;
+	font-size:0.6em;
+}
+#flo .aloa #shousuo:hover{
+	opacity :0.5;
+	background-color:#fff;
+
+}
+#flo .aloa #txt
+{
+	width:76%;
+	margin-left:8%;
+	padding: 1% 0;
+}
+#flo #bloa{
+	background-color: #eee;
+	width:89.5%;
+	padding:5%;
+	border:1px solid #e1e1e1;
+	cursor:pointer;
+}
+#flo n{
+	padding: 2% 5%;
+	font-size:0.7em;
+}
+#flo #cloa{
+	padding:2% 8%;
+	
+}
+#flo #dloa{
+	margin-bottom:20px;
+}
+#flo #dlo{
+	background-color:#fff;
+	padding: 2% 8%;
+	border-bottom:1px solid #e1e1e1;
+	cursor:pointer;
+}
+#flo #sc{
+	background:url('../images/b2.png') ;
+	background-size: 100% 100%;
+	color:#fff;
+}
+#flo #sc #ssc{
+	width:100%;
+	line-height:1.5em;
+}
+#flo #sc #ssc #sca #di{
+	font-size:0.8em;
+	padding:2%;
+}
+#flo #sc #ssc #sca #mai{
+	text-align:center;
+	font-size:1em;
+	border-bottom:1px solid #fff;
+	padding-bottom:10px;
+}
+#flo #sc #ssc #scb ul li{
+	text-align:center;
+	width:33%;
+	padding-top:3%;
+	border-left:1px solid #fff;
+	float:left;
+	padding-bottom:10px;
+}
+#flo #jt{
+	padding:2% 0 0 1%;
+	margin-bottom:10px;
+	font-size:1em;
+	line-height:2em;
+}
