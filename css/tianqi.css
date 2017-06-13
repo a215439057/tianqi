@@ -26,9 +26,11 @@ body{
 }
 #flo .aloa{
 	position: relative;
-	background-color:#c3f4f8;
-	width:98%;
-	padding:1% 1%;
+	width:99%;
+	background-color: #fff;
+	border: 1px solid silver;
+	height:30px;
+	padding-top:5px;
 }
 #flo .aloa #back{
     position: absolute;
@@ -52,23 +54,20 @@ body{
     -ms-transform: rotate(-45deg);
     transform: rotate(-45deg);
 }
+#flo .aloa #txt
+{
+    padding:0 2%;
+}
 #flo .aloa #shousuo{
-	
 	cursor:pointer;
-	padding:1%;
-	font-size:0.6em;
+	font-size:0.8em;
+	margin-left:28%;
 }
 #flo .aloa #shousuo:hover{
 	opacity :0.5;
 	background-color:#fff;
+}
 
-}
-#flo .aloa #txt
-{
-	width:76%;
-	margin-left:8%;
-	padding: 1% 0;
-}
 #flo #bloa{
 	background-color: #eee;
 	width:89.5%;

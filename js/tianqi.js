@@ -3,7 +3,7 @@ window.onload = function(){
 	var $bloa =$('#bloa');
 	var $cloa =$('#cloa');
 	var $dloa =$('#dloa');
-	var $txt =$('#txt');
+	var $city =$('#city');
 	var $sc =$('#sc');
 	var $ss =$('#shousuo');
 	bloa.onclick =function(){
@@ -12,12 +12,23 @@ window.onload = function(){
 		$sc.css("display","none");
 	}
 	$ss.click(function(){
-		var txt = $txt.val();
-		if (txt =="") {
-			alert("请输入城市");
-		}
-		else{
-			tian(txt);
+		var $city =$('#city option:selected');
+		var city = $city.text();
+		switch (city){
+			case "":
+					alert("请输入城市");
+					break;
+			case "北京市市辖区":
+					city = "北京市";
+					tian(city);
+					break;		
+			case "上海市市辖区":
+					city = "上海市";
+					tian(city);
+					break;
+			default:
+                    tian(city);
+                    break;		
 		}
 	});
 	$dloa.find('div').each(function(k,v){
