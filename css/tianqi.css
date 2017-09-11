@@ -110,18 +110,31 @@ body{
 	font-size:1em;
 	border-bottom:1px solid #fff;
 	padding-bottom:10px;
+	line-height:30px;
+}
+#flo #sc #ssc #scb{
+	width:100%;
+	height:180px;
+	border-bottom:1px solid #fff;
 }
 #flo #sc #ssc #scb ul li{
 	text-align:center;
-	width:33%;
-	padding-top:3%;
+	width:24.5%;
+	height:180px;
 	border-left:1px solid #fff;
 	float:left;
-	padding-bottom:10px;
+	line-height:25px;
+}
+#flo #sc #ssc #scb ul li img{
+	padding-top:20px;
 }
 #flo #jt{
 	padding:2% 0 0 1%;
 	margin-bottom:10px;
 	font-size:1em;
 	line-height:2em;
+	width:100%;
+}
+.clear{
+	clear:both;
 }

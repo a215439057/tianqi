@@ -1,16 +1,64 @@
 window.onload = function(){
-	var $flo =$('#flo');
-	var $bloa =$('#bloa');
+    var citySelect = document.getElementById('city');
+    //行政区划查询
+    var opts = {
+        subdistrict: 1,   //返回下一级行政区
+        level: 'city',
+        showbiz:false  //查询行政级别为 市
+    };
+    district = new AMap.DistrictSearch(opts);//注意：需要使用插件同步下发功能才能这样直接使用
+    district.search('中国', function(status, result) {
+        if(status=='complete'){
+            getData(result.districtList[0]);
+        }
+    });
+    function getData(data) {
+        var subList = data.districtList;
+        var level = data.level;
+        //清空下一级别的下拉列表
+        if (level === 'province') {
+            nextLevel = 'city';
+            citySelect.innerHTML = '';
+        } 
+        if (subList) {
+            var contentSub =new Option('--请选择--');
+            for (var i = 0, l = subList.length; i < l; i++) {
+                var name = subList[i].name;
+                var levelSub = subList[i].level;
+                if(i==0){
+                    document.querySelector('#' + levelSub).add(contentSub);
+                }
+                contentSub=new Option(name);
+                contentSub.setAttribute("value", levelSub);
+                contentSub.center = subList[i].center;
+                contentSub.adcode = subList[i].adcode;
+                document.querySelector('#' + levelSub).add(contentSub);
+            }
+        }
+        
+    }
+    $('select#province').change(function(){
+    	var option = this[this.options.selectedIndex];
+
+        var adcode = option.adcode;
+        //行政区查询
+        //按照adcode进行查询可以保证数据返回的唯一性
+        district.search(adcode, function(status, result) {
+            if(status === 'complete'){
+                getData(result.districtList[0]);
+            }
+        });
+ 	});
+/**/
 	var $cloa =$('#cloa');
 	var $dloa =$('#dloa');
-	var $city =$('#city');
 	var $sc =$('#sc');
 	var $ss =$('#shousuo');
 	bloa.onclick =function(){
 		$dloa.css("display","block");
 		$cloa.css("display","block");
 		$sc.css("display","none");
-	}
+	};
 	$ss.click(function(){
 		var $city =$('#city option:selected');
 		var city = $city.text();
@@ -33,9 +81,9 @@ window.onload = function(){
 	});
 	$dloa.find('div').each(function(k,v){
 		$(v).click(function(){
-			var dl = $(this).text()
+			var dl = $(this).text();
 			tian(dl);
-		})   
+		});   
 	});
 	/*AJAX*/
 	function tian(dizhi){
@@ -52,9 +100,7 @@ window.onload = function(){
 	        		else{
 	        			var tianqia = $("<p></p>");
 	        			var tianqib = $("<p></p>");
-	        			var tianqic=new Array();
-	        			var tianqid = $("<p></p>"); 
-	        			var tianqi = $("<p></p>"); 
+                var tianqic = new Array([]);
 	        			var tqa =$("<p></p>"); 
 	        			var tqb =$("<p></p>"); 
 	        			tim='<p>'+data.date+'</p>';	
@@ -79,7 +125,7 @@ window.onload = function(){
 							tianqib.append("PM指数:"+titles.pm25);	
 							$('#mai').html(tianqib);
 							/*未来天气*/
-						for	(var i=1;i<4; i++){
+						for	(;i<4; i++){
 								tianqic[i-0] =$("<p></p>");
 								var qc = qq[i];
 								$("<img/>").attr("src", qc.dayPictureUrl).appendTo(tianqic[i]);		
@@ -89,19 +135,18 @@ window.onload = function(){
 							 	}	
 							 	$('#scb').find('ul').html(tqa);
 							 	/*天气事宜*/
-								for (var i = 0; i < titles.index.length; i++) {
+								for ( ;i < titles.index.length; i++) {
 							 	var tt = titles.index[i];
 							 	htm = '<p>' + tt.tipt + ':' + tt.des + '</p>';
 							 	tqb.append('<span>'+ htm +'</span>');							 	
 							 	}
-							 	$('#jt').html(tqb)						 						
+							 	$('#jt').html(tqb);						 						
 						});
 						$dloa.css("display","none");
 						$cloa.css("display","none");	
 						$sc.css("display","block");
-	        		}
-		 		
+	        		}	 		
 				},
- 			})
+ 			});
 		 }		
-}
+};
